@@ -1,4 +1,4 @@
-\documentclass[11pt,twocolumn]{article}
+\documentclass[11pt]{article}
 
 % text layout
 \usepackage{geometry}
@@ -17,6 +17,9 @@
 \usepackage{natbib}
 \usepackage{float}
 \usepackage{url}
+\usepackage{lineno}
+
+% \setcitestyle{numbers}
 
 \usepackage{authblk}
 \renewcommand\Authands{ \& }
@@ -28,7 +31,9 @@
 
 \begin{document}
 
-\title{Accumulated metagenomic studies reveal recent migration, whole genome evolution, and taxonomic incompleteness of orthomyxoviruses}
+\linenumbers
+
+\title{Accumulated metagenomic studies reveal recent migration, whole genome evolution, and undiscovered diversity of orthomyxoviruses}
 
 \author[a,1]{Gytis Dudas}
 \author[b,1]{Joshua Batson}
@@ -36,52 +41,65 @@
 \affil[a]{Institute of Biotechnology, Life Sciences Centre at Vilnius University, Vilnius, Lithuania}
 \affil[b]{Chan Zuckerberg Biohub, San Francisco CA, USA}
 
-
-% \significancestatement{
-% The number of known virus species has increased dramatically through metagenomic studies, which search genetic material sampled from a host for viral genes. Here, we focus on an important viral family with over a hundred recently discovered species infecting hosts from humans to fish. We find one virus, discovered in mosquitoes in China, recently spread across the globe. Surface proteins used to enter cells show signs of rapid evolution in that virus and across the family. We compute the rate at which new species discovered add evolutionary history to the tree of life, predict that many viruses remain to be discovered, and discuss what appropriately designed future studies can teach us about how diseases cross between continents and species.
-% }
-
-% \correspondingauthor{\textsuperscript{1}To whom correspondence should be addressed. E-mail: gytis.dudas@gmc.vu.lt, joshua.batson@gmail.com}
 \affil[1]{Corresponding authors: gytis.dudas@gmc.vu.lt, joshua.batson@gmail.com}
 
 \maketitle
 
 
-
-\onecolumn
   \begin{abstract}
 
-  Metagenomic studies have uncovered an abundance of novel viruses by looking beyond hosts of obvious public health or economic interest. The discovery of conserved genes in viruses infecting geographically and phylogenetically diverse hosts has provided important evolutionary context for human and animal pathogens. However, the resulting viral genomes are often incomplete, and analyses largely characterize the distribution of viruses over their dynamics. Here, we show how the accumulated data of metagenomic studies can be integrated to reveal geographic and evolutionary dynamics in a case study of \textit{Orthomyxoviridae}, the family of RNA viruses containing influenza virus. First, we use sequences of the orthomyxovirid W\v{u}h\`{a}n mosquito virus 6 to track the global migrations of its host. We then look at overall orthomyxovirus genome evolution, finding significant gene gain and loss across members of the family, especially in the surface proteins responsible for cell and host tropism. We find that the surface protein of W\v{u}h\`{a}n mosquito virus 6 exhibits accelerated non-synonymous evolution suggestive of antigenic evolution, and an entire quaranjavirid group bearing highly diverged surface proteins. Finally we quantify the progress of orthomyxovirus discovery and forecast that many highly diverged \textit{Orthomyxoviridae} members remain to be found. We argue that continued metagenomic studies will be fruitful for understanding the dynamics, evolution, ecology of viruses and their hosts, regardless of whether novel viruses are actually identified or not, as long as study designs allowing for the resolution of complete viral genomes are employed.
-
+  Metagenomic studies have uncovered many novel viruses by looking beyond hosts of public health or economic interest.
+  However, the resulting viral genomes are often incomplete, and analyses largely characterize the distribution of viruses over their dynamics.
+  Here, we integrate accumulated data from metagenomic studies to reveal geographic and evolutionary dynamics in a case study of \textit{Orthomyxoviridae}, the RNA virus family that includes influenza virus.
+  First, we use sequences of the orthomyxovirid W\v{u}h\`{a}n mosquito virus 6 to track the migrations of its host.
+  We then look at orthomyxovirus genome evolution, finding gene gain and loss across members of the family, especially in the surface proteins responsible for cell and host tropism.
+  We find that the surface protein of W\v{u}h\`{a}n mosquito virus 6 exhibits accelerated non-synonymous evolution suggestive of antigenic evolution \textit{i.e.} vertebrate infection, and belongs to a wider quaranjavirid group bearing highly diverged surface proteins.
+  Finally we quantify the progress of orthomyxovirus discovery and forecast that many diverged \textit{Orthomyxoviridae} members remain to be found.
+  We argue that continued metagenomic studies will be fruitful for understanding the dynamics, evolution, ecology of viruses and their hosts, regardless of whether novel viruses are identified or not, as long as study designs allowing for the resolution of complete viral genomes are employed.
   \end{abstract}
 
+\subsection{Importance}
 
-% \subsection*{Summary}
-%   The number of known virus species has increased dramatically through metagenomic studies, which search genetic material sampled from a host for viral genes. Here, we focus on an important viral family with over a hundred recently discovered species infecting hosts from humans to fish. We find one virus, discovered in mosquitoes in China, recently spread across the globe. Surface proteins used to enter cells show signs of rapid evolution in that virus and across the family. We compute the rate at which new species discovered add evolutionary history to the tree of life, predict that many viruses remain to be discovered, and discuss what appropriately designed future studies can teach us about how diseases cross between continents and species.
+The number of known virus species has increased dramatically through metagenomic studies, which search genetic material sampled from a host for non-host genes.
+Here, we focus on an important viral family that includes influenza viruses, the \textit{Orthomyxoviridae}, with over a hundred recently discovered viruses infecting hosts from humans to fish.
+We find one virus called W\v{u}h\`{a}n mosquito virus 6, discovered in mosquitoes in China, has spread across the globe very recently.
+Surface proteins used to enter cells show signs of rapid evolution in W\v{u}h\`{a}n mosquito virus 6 and its relatives which suggests an ability to infect vertebrate animals.
+We compute the rate at which new orthomyxovirus species discovered add evolutionary history to the tree of life, predict that many viruses remain to be discovered, and discuss what appropriately designed future studies can teach us about how diseases cross between continents and species.
 
 
-\twocolumn
+\section{Introduction}
 
 
-
+\subsection{Metagenomic virus discovery efforts to date}
 
 Viruses that cause disease in humans and economically important organisms were the first to be isolated and characterized.
-Recently, cheap DNA sequencing has enabled a wave of metagenomic studies in a broader range of hosts, in which viruses are identified in a host sample by nucleic acid sequence alone and a new virus is said to be discovered if that sequence is sufficiently diverged. As a result, the number of known viruses has increased by more than an order of magnitude in the decade since 2012 \citep{roux_metagenomics_2021}.
-While some entirely new viral families have been proposed \citep{obbard_new_2020}, many of these new viruses are interleaved on the tree of life with viruses infecting hosts of economic importance. Studying their ecology \citep{shi_stable_2019} and host associations \citep{li_unprecedented_2015,shi_evolutionary_2018} provides insight into the host-switching and genome evolution processes important for the evolution of pathogenicity.
+Recently, cheap DNA sequencing has enabled a wave of metagenomic studies in a broader range of hosts, in which viruses are identified in a host sample by nucleic acid sequence alone and a new virus is said to be discovered if that sequence is sufficiently diverged.
+As a result, the number of known viruses has increased by more than an order of magnitude in the decade since 2012 \citep{roux_metagenomics_2021}.
+While some entirely new viral families have been proposed \citep{obbard_new_2020}, many of these new viruses are interleaved on the virus tree of life with viruses infecting hosts of economic importance.
+Studying their ecology \citep{shi_stable_2019} and host associations \citep{li_unprecedented_2015,shi_evolutionary_2018} provides insight into the host-switching and genome evolution processes important for the evolution of pathogenicity.
 
 
-This richer tree has provided some early success stories, such as jingmenvirids first discovered metagenomically in ticks \citep{qin_tick-borne_2014} and later associated with human disease \citep{wang_new_2019}. Surveillance in hosts known to pose disproportionate risk, such as bats, \citep{ge_coexistence_2016} has provided context for zoonotic pathogens like SARS-CoV-2 \citep{wu_new_2020}.
+This richer tree of viruses has provided some early success stories, such as jingmenvirids that are currently associated with human disease \citep{wang_new_2019} but which were first discovered metagenomically in ticks \citep{qin_tick-borne_2014} indicating a likely route of transmission.
+Surveillance in hosts known to pose disproportionate risk, such as bats, \citep{ge_coexistence_2016} has similarly provided context for zoonotic pathogens like SARS-CoV-2 \citep{wu_new_2020}.
 Metagenomic studies carried out at scale can effectively multiplex other tasks previously addressed with targeted sampling, like understanding the evolutionary history of human pathogens \citep{keele_chimpanzee_2006} or using viruses that evolve faster than their hosts to track host movements \citep{wheeler_spatial_2010}.
 
 
 
-Here, we seek to show how accumulated data from metagenomic studies can provide deep insights into viral evolution and dispersion across a moderately diverged viral clade through a case study of \textit{Orthomyxoviridae}. \textit{Orthomyxoviridae} is a family of enveloped segmented negative sense single-stranded RNA viruses that infect vertebrates and arthropods.
+\subsection{Going beyond mere virus discovery}
+
+Here, we seek to show how accumulated data from metagenomic studies can provide deep insights into viral evolution and dispersion across a moderately diverged viral clade through a case study of \textit{Orthomyxoviridae}.
+\textit{Orthomyxoviridae} is a family of enveloped segmented negative sense single-stranded RNA viruses that infect vertebrates and arthropods.
 Traditionally it is split into genera \textit{Thogotovirus}, \textit{Quaranjavirus} (both mostly tick-borne and occasionally infecting vertebrates), \textit{Isavirus} (found only in fish so far), and a genus for each of influenza A, B, C, and D viruses (found in various vertebrates, including humans).
-Orthomyxovirus discovery has historically been driven by impact on human health (\textit{e.g.} influenza virus) and livelihood (\textit{e.g.} salmon infectious anemia virus), or association with known disease vectors (\textit{e.g.} the tick-borne Johnston Atoll quaranja- and Thogoto thogotovirus). The metagenomic revolution has resulted in ten times more orthomyxovirids being discovered over the last decade than in the previous 79 years since the first orthomyxovirus discovery, of influenza A virus, in 1933. The vast majority of known orthomyxoviruses use one of two surface protein classes, with vertebrate-infecting-only members (influenza and isavirids) using one or more class I membrane fusion proteins derived from hemagglutinin-esterase-fusion (HEF) \citep{parry_divergent_2020}, sometimes delegating the esterase function to a separate protein neuraminidase (NA). Meanwhile, arthropod-infecting orthomyxovirids (quaranja- and thogotovirids, which sometimes spill over into vertebrates) use a class III membrane fusion protein called gp64 \citep{garry_proteomics_2008}. Orthomyxovirus genomes are known to have 6-8 segments, but many metagenomically discovered viruses in this group have incomplete genomes. To our knowledge, an inventory of surface protein class use and segment content of \textit{Orthomyxoviridae} members is not yet available.
+Orthomyxovirus discovery has historically been driven by impact on human health (\textit{e.g.} influenza virus) and livelihood (\textit{e.g.} salmon infectious anemia virus), or association with known disease vectors (\textit{e.g.} the tick-borne Johnston Atoll quaranja- and Thogoto thogotovirus).
+The metagenomic revolution has resulted in ten times more orthomyxovirids being discovered over the last decade than in the previous 79 years since the first orthomyxovirus discovery, of influenza A virus, in 1933.
+The vast majority of known orthomyxoviruses use one of two surface protein classes, with vertebrate-infecting-only members (influenza and isavirids) using one or more class I membrane fusion proteins derived from hemagglutinin-esterase-fusion (HEF) \citep{parry_divergent_2020}, sometimes delegating the receptor cleavage function upon exit from the host cell to a separate protein neuraminidase (NA).
+Meanwhile, arthropod-infecting orthomyxovirids (quaranja- and thogotovirids, which sometimes spill over into vertebrates) use a class III membrane fusion protein called gp64 \citep{garry_proteomics_2008}.
+Orthomyxovirus genomes are known to have 6-8 segments, but many metagenomically discovered viruses in this group have incomplete genomes.
+To our knowledge, an inventory of surface protein class use and segment content of \textit{Orthomyxoviridae} members is not yet available.
 
 
 We start by showing how closely related virus sequences observed across numerous studies can reveal host spatial dynamics and virus microevolution, using the orthomyxovirid W\v{u}h\`{a}n mosquito virus 6 (WuMV-6).
-WuMV-6 was discovered in China in 2013 from a single PB1 sequence \citep{li_unprecedented_2015}. 
+WuMV-6 was discovered in China in 2013 from a single PB1 sequence \citep{li_unprecedented_2015}.
 WuMV-6 belongs to a diverse clade of arthropod orthomyxovirids somewhat distantly related to members of the genus \textit{Quaranjavirus}.
 WuMV-6 has since turned up in \textit{Culex} mosquitoes across numerous metagenomic studies all around the world \citep{shi_high-resolution_2017,pettersson_meta-transcriptomic_2019,batson_single_2021}.
 The abundance of WuMV-6 genome data and its amenability to molecular clock analyses are the main reasons why we chose to focus on it.
@@ -96,22 +114,33 @@ Finally we borrow methods from macroevolutionary research to quantitatively asse
 
 \section{Results}
 
+
 \begin{figure*}
   \centering
-  \includegraphics[width=0.95\textwidth]{Fig1_tracking.png}
+  \includegraphics[width=0.85\textwidth]{Fig1_tracking.pdf}
   \caption{
-    A) Reassortment network of complete WuMV-6 genomes. Tips are indicated with circles and colored based on location. Reassortant edges are indicated with dashed lines terminating in white arrowheads and numbered with segments carried along the edge indicated with filled-in rectangles to the right of the plot (for clearer segment embeddings see Supp. Fig. 1). The network is truncated to 1995 with a violin plot indicating the 95\% highest posterior density for the date of the common ancestor of non-Swedish WuMV-6 samples. Black vertical line with the gray dot within the violin plot indicates the mean estimate. The inset plot indicates same for the root date of the network with black vertical line indicating the mean. Since the summary procedure for the posterior distribution of networks is overly conservative (see Supp. Fig. 2), node supports are expressed as number of times a given node is seen with $\geq$0.95 probability in segment embedding summary trees, after carrying out the subtree prune-regraft procedures for any given embedding indicated by reassortant edges, out of all such nodes.
-    B) A maximum likelihood (ML) tree of WuMV-6 PB1 sequences, showing additional samples for which only incomplete genomes are available (Greece and China). Dots on the map indicate all locations where the presence of WuMV-6 has been detected, including complete (Australia, Cambodia, China, Sweden, USA) and incomplete genomes (China, and Greece), and detections at the read level (Connecticut, Philippines, Puerto Rico, Trinidad and Tobago, and Tunisia). Dotted lines connect locations that have experienced recent WuMV-6 gene flow based on reassortment patterns. For all available WuMV-6 segment data see Supp. Fig. 3.
+    A) Reassortment network of complete WuMV-6 genomes.
+    Tips are indicated with circles and colored based on location.
+    Reassortant edges are indicated with dashed lines terminating in white arrowheads and numbered with segments carried along the edge indicated with filled-in rectangles to the right of the plot (for clearer segment embeddings see Supp. Fig. 4).
+    The network is truncated to 1995 with a violin plot indicating the 95\% highest posterior density (HPD) interval for the date of the common ancestor of non-Swedish WuMV-6 samples estimated from the posterior distribution of reassortment networks.
+    Horizontal gray bars indicate node height 95\% HPD intervals in the summary network.
+    Black vertical line with the gray dot within the violin plot indicates the mean estimate.
+    The inset plot indicates same for the root date of the network with black vertical line indicating the mean.
+    Since the summary procedure for the posterior distribution of networks is overly conservative (see Supp. Fig. 5), node supports are expressed as number of times a given node is seen with $\geq$0.95 probability in segment embedding summary trees, after carrying out the subtree prune-regraft procedures for any given embedding indicated by reassortant edges, out of all such nodes.
+    B) A maximum likelihood (ML) tree of WuMV-6 PB1 sequences, showing additional samples for which only incomplete genomes are available (Greece and China).
+    Dots on the map indicate all locations where the presence of WuMV-6 has been detected, including complete (Australia, Cambodia, China, Sweden, USA) and incomplete genomes (China, and Greece), and detections at the read level (Connecticut, Philippines, Puerto Rico, Trinidad and Tobago, and Tunisia).
+    Dotted lines connect locations that have experienced recent WuMV-6 gene flow based on reassortment patterns.
+    For all available WuMV-6 segment data see Supp. Fig. 6.
     }
     \label{fig:tracking}
 \end{figure*}
 
-
-\subsection{Insect virus population dynamics}
+\subsection{WuMV-6 exhibits rapid population dynamics}
 
 W\v{u}h\`{a}n mosquito virus 6 (WuMV-6), a mosquito orthomyxovirus seen frequently across much of the world \citep{pettersson_meta-transcriptomic_2019,li_unprecedented_2015,shi_high-resolution_2017} belongs to a clade related to the genus \textit{Quaranjavirus} and has two extra segments compared to other quaranjavirids \citep{batson_single_2021}.
-We inferred the reassortment network \citep{muller_bayesian_2020} of currently available complete WuMV-6 genomes (seven from Australia, 13 from California, three from Cambodia, one from China, three from Sweden) collected between 2006 and 2020 to infer the relationships between segments, their reassortments with respect to each other and timings of both (Fig. \ref{fig:tracking}A and Supp. Fig. 1).
-We find that all WuMV-6 segments share a common ancestor within the last 60-odd years, which is not unusual for insect viruses \citep{webster_discovery_2015} (Fig. \ref{fig:tracking}A and Supp. Figs. 2 and 3), and that a more recent, potentially global, sweep is underway, with segments from six continents sharing a common ancestor in the last 20 years (Fig. \ref{fig:tracking}B).
+WuMV-6 is also distinct from many other arthropod RNA viruses in being found very often yet exhibiting limited genetic diversity and a strong molecular clock signal (Supp. Figs. 1, 2, and 3), allowing the use of phylogenetic methods like the reassortment network \citep{muller_bayesian_2020}.
+Fig. \ref{fig:tracking}A (also Supp. Fig. 4) shows a reassortment network analysis of currently available complete WuMV-6 genomes (seven from Australia, 13 from California, three from Cambodia, one from China, three from Sweden) collected between 2006 and 2020, depicting relationships between segments, their reassortments with respect to each other and timings of both.
+We find that all WuMV-6 segments share a common ancestor within the last 60-odd years, which is not unusual for insect viruses \citep{webster_discovery_2015} (Fig. \ref{fig:tracking}A and Supp. Figs. 5 and 6), and that a more recent, potentially global, sweep is underway, with segments from six continents sharing a common ancestor in the last 20 years (Fig. \ref{fig:tracking}B).
 
 
 
@@ -122,36 +151,14 @@ Even lineages not represented in the reassortment network due to incomplete geno
 These results indicate that WuMV-6 populations are very mobile.
 
 
-
-\subsection{Surface protein evolution across members of \textit{Orthomyxoviridae}}
-
-By estimating the rates of synonymous and non-synonymous evolution we find that gp64, the surface protein of WuMV-6, is evolving faster in terms of non-synonymous substitutions per codon per year than the rest of the known WuMV-6 proteome, save for the smallest segment, which is expected to be spliced (hypothetical3 \citep{batson_single_2021}) and therefore likely to contain overlapping reading frames (Fig. \ref{fig:orthomyxos}A and Supp. Fig. 4).
-The rate of non-synonymous evolution in WuMV-6 gp64 is also faster than the spike protein of endemic human coronaviruses \citep{kistler_evidence_2021} and about as fast as Ebola virus glycoprotein GP during the West African epidemic \citep{park_ebola_2015}(Fig. \ref{fig:orthomyxos}A), with highest dN/dS values concentrated around its fusion loops \citep{garry_proteomics_2008} (Supp. Fig. 5).
-We see elevated rates of amino acid evolution in gp64 across the wider clade defined by Astopletus and \={U}sinis viruses, to which WuMV-6 belongs. Members have PB1 proteins (encoding RdRp) closely related (Fig. \ref{fig:orthomyxos}B) but gp64 proteins substantially diverged from other quaranjaviruses and each other (Fig. \ref{fig:orthomyxos}C and Supp. Fig. 6).
-The pronounced non-synonymous divergence in gp64 at the WuMV-6 population level and the wider Asto-\={U}sinis clade level indicates some evolutionary pressure on this surface protein, such as diversifying selection pressure from repeat infections of hosts with humoral immune systems.
-
-
-Comparing the numbers of PB1 and gp64 proteins sequences discovered so far indicates a clear paucity of the latter, especially in the Asto-\={U}sinis clade, which highlights the poor general state of knowledge of genome composition across members of \textit{Orthomyxoviridae}.
-The closest relative with reliable segment information (based on EM photographs \citep{allison_cyclic_2015}) is the genus \textit{Quaranjavirus} with seven segments (Fig. \ref{fig:orthomyxos}B), indicating that since the common ancestor of the \textit{Quaranjavirus} genus and the Asto-\={U}sinis clade, segments were either lost in the former or gained in the latter.
-Such gaps (Fig. \ref{fig:orthomyxos}B) in understanding seem to increase with phylogenetic distance from vertebrate-pathogenic viruses, a hallmark of retrospective research into outbreaks rather than prospective efforts aimed at understanding the correlates of pathogenicity across members of this family.
-
-
-The phylogenetic tree of PB1 with surface protein classes indicated also demonstrates the plasticity in orthomyxovirus genome composition --- regardless of rooting, the PB1 tree requires at least two switches in viral membrane fusion protein class to explain the current distribution of HEF-like (class I) and gp64-like (class III) proteins.
-Even within gp64-using orthomyxoviruses changes between different gp64 lineages are apparent, \textit{e.g.} H\`{u}b\v{e}i orthomyxo-like virus 2 carries gp64 related to the Asto-\={U}sinis clade yet does not belong to it in PB1 (Fig. \ref{fig:orthomyxos}B and Supp. Fig. 6).
-Almost all orthomyxoviruses use either HEF-like or gp64-like proteins, with Rainbow / Steelhead trout orthomyxoviruses (and one additional relative \citep{batts_molecular_2017}, not shown) being the only exceptions. Both clearly possesses an influenza A/B virus-like neuraminidase (NA) but the protein termed ``hemagglutinin'' \citep{batts_molecular_2017} does not resemble any known protein \citep{finn_hmmer_2011}.
-While \textit{Orthomyxoviridae} are a moderately-sized virus family, their members make use of a diverse and evolving set of surface proteins.
-
-
 \begin{figure*}%[tbhp]
 \centering
-\includegraphics[width=0.72\textwidth]{Fig2A_nsyn.png}
-\includegraphics[width=0.72\textwidth]{Fig2BC_orthomyxos.png}
-
+\includegraphics[width=0.97\textwidth]{Fig2_protein-trees.pdf}
 \caption{
 A) 95\% highest posterior densities for the rate of non-synonymous mutations per codon per year for each known WuMV-6 gene (indicated by color).
-Black vertical ticks indicate the mean estimate, $\times$ marks similar estimates for the surface glycoprotein (GP) of Ebola virus and the surface spike proteins (S) of human seasonal coronaviruses OC43 and 229E.
-The length of each open reading frame is indicated to the right, with white lines denoting 100 amino acid increments and gp64 outlined in black.
-Note that putative hypothetical 3 protein is expected to be the result of splicing \citep{batson_single_2021} and therefore can contain overlapping coding regions where synonymous changes in one frame may be deleterious in another.
+Black vertical ticks indicate the mean estimate.
+Lengths of open reading frames is shown to the right, with white lines denoting 100 amino acid increments and gp64 outlined in black.
+Note that putative hypothetical 3 protein is expected to be spliced \citep{batson_single_2021} and may contain overlapping coding regions where synonymous changes in one frame may be non-synonymous in another.
 B) Rooted phylogenetic tree depicts the relationships between PB1 proteins of orthomyxoviruses.
 Surface proteins are marked as colored circles at the tips: red hues for class I membrane fusion proteins, green/blue and yellow/brown for class III proteins (gp64) of \textit{Orthomyxoviridae} and non-\textit{Orthomyxoviridae}, respectively, and lilac for neuraminidases.
 Likely genome composition for certain groups are highlighted with black vertical lines to the right of the tree, with corresponding implied common ancestor with such organization marked with a black circle in the tree.
@@ -164,56 +171,141 @@ Black branches with a faded green area in the gp64 tree to the right indicate th
 \end{figure*}
 
 
-\subsection{Discovery of phylogenetic diversity}
+\subsection{Surface protein gp64 of WuMV-6 and its relatives evolves rapidly}
 
-We now analyze the progress made by virus discovery studies on \textit{Orthomyxoviridae} members by quantifying the evolutionary contribution (branch length in amino acid substitutions per site) contributed by each new orthomyxovirid taxon.
-There are two clear phases of discovery: before 2015, public health investigations of pathogens infecting humans and farmed animals or vectored by ticks led to the discovery of 14 viruses. Since 2015, when lower costs of sequencing enabled large metagenomic surveys in arthopods and vertebrates of little immediate economic value \citep{li_unprecedented_2015, shi_evolutionary_2018}, 115 additional viruses have been discovered (Supp. Fig. 7).
-
-
-To quantify how each discovery contributed to our knowledge of the family's evolutionary history, we take a phylogenetic approach, building a maximum-likelihood tree of the sole protein shared by all RNA viruses, RNA-directed RNA polymerase (RdRp) \citep{koonin_virus_2014}, encoded here in the PB1 gene \citep{kobayashi_influenza_1996} (Fig. \ref{fig:contributions}A). We scan through the tree based on the chronology of discovery, attributing to each taxon the sum of the lengths of the branches ancestral to that taxon but not to earlier taxa. This quantity is called the phylogenetic diversity (PD), a metric commonly used in ecology and macroevolution \citep{lum_tracking_2022}, and represents the amount of independent evolution \citep{felsenstein_phylogenies_1985} contributed by a sequence to a tree.
-
-
-We find that distinctive viruses, those contributing significant PD, have continued to be discovered each year (Fig. \ref{fig:contributions}B). For example, the W\={e}nl\v{i}ng orthomyxo-like virus 2 found in 2018 is nearly as distinctive relative to the viruses discovered before it as the Infectious salmon anemia virus found in 1984 was. There is no correlation between the year of discovery and the maximum PD contributed by an orthomyxovirid (Spearman r $ = 0.02$, p-value $ = 0.95$). In contrast, the average PD contributed per virus does decrease with time (Spearman r $ = -0.17$, one-tailed p-value $ = 0.054/2=0.027$), as shared evolutionary history is attributed to earlier discoveries. While the orthomyxoviruses discovered each year are, on average, less distinctive, the increased host breadth and rapid pace of current studies result in evolutionarily highly distinctive viruses.
+By estimating the rates of synonymous and non-synonymous evolution we find that gp64, the surface protein of WuMV-6, is evolving faster in terms of non-synonymous substitutions per codon per year than the rest of the known WuMV-6 proteome, save for the smallest segment, which is expected to be spliced (hypothetical3 \citep{batson_single_2021}) and therefore likely to contain overlapping reading frames (Fig. \ref{fig:orthomyxos}A and Supp. Fig. 7).
+The rate of non-synonymous evolution in WuMV-6 gp64 is also faster than the spike protein of endemic human coronaviruses \citep{kistler_evidence_2021} and about as fast as Ebola virus glycoprotein GP during the West African epidemic \citep{park_ebola_2015}(Fig. \ref{fig:orthomyxos}A), with highest dN/dS values concentrated around its fusion loops \citep{garry_proteomics_2008} (Supp. Fig. 8).
+We see elevated rates of amino acid evolution in gp64 across the wider clade defined by Astopletus and \={U}sinis viruses, to which WuMV-6 belongs.
+Members have PB1 proteins (encoding RdRp) closely related (Fig. \ref{fig:orthomyxos}B) but gp64 proteins substantially diverged from other quaranjaviruses and each other (Fig. \ref{fig:orthomyxos}C and Supp. Fig. 9).
+The pronounced non-synonymous divergence in gp64 at the WuMV-6 population level and the wider Asto-\={U}sinis clade level indicates some evolutionary pressure on this surface protein, such as diversifying selection pressure from repeat infections of hosts with humoral immune systems.
 
 
-Fig. \ref{fig:contributions}C shows the cumulative PD of PB1 after each new orthomyxovirid discovery. Early orthomyxovirid discovery efforts do show some bias, finding viruses more related to one-another than by chance: until 2018, the empirical accumulation of PD (black dots) is mostly below the 95 percentile envelope of 1000 random permutations of discovery order (gray hatched area). We fit the empirical data with a logarithmic function ($f(x) = A \times log_{2} (1 + x/B)$, where A = 46.3 and B=62.4), indicated with a red line in Fig. \ref{fig:contributions}C). We can extrapolate this curve into the future, \textit{e.g.} 200th orthomyxovirid is expected to contribute $\approx$0.26 amino acid substitutions per site to PB1 PD (bringing total PD to 95.9), and the 500th $\approx$0.12 (total PD 146.8). Note that any remaining bias in the current viral discovery paradigm, leaving some parts of the \textit{Orthomyxoviridae} tree of life undersampled, would manifest in a future PD curve higher than the extrapolation of the one observed so far. There is, regardless, an eventual limit, in which the PD gain of a new discovery is less than the threshold of difference used to define a new taxon (\textit{e.g.} 0.1 aa sub/site would currently be reached around the 600th taxon). If current trends continue, there would remain at least hundreds of additional taxa to be discovered.
+Comparing the numbers of PB1 and gp64 proteins sequences discovered so far indicates a clear paucity of the latter, especially in the Asto-\={U}sinis clade, which highlights the poor general state of knowledge of genome composition across members of \textit{Orthomyxoviridae}.
+The closest relative with reliable segment information (based on EM photographs \citep{allison_cyclic_2015}) is the genus \textit{Quaranjavirus} with seven segments (Fig. \ref{fig:orthomyxos}B), indicating that since the common ancestor of the \textit{Quaranjavirus} genus and the Asto-\={U}sinis clade, segments were either lost in the former or gained in the latter.
+Such gaps (Fig. \ref{fig:orthomyxos}B) in understanding seem to increase with phylogenetic distance from vertebrate-pathogenic viruses, a hallmark of retrospective research into outbreaks rather than prospective efforts aimed at understanding the correlates of pathogenicity across members of this family.
+
+
+\subsection{Surface proteins of \textit{Orthomyxoviridae} are prone to horizontal gene transfer}
+
+The phylogenetic tree of PB1 with surface protein classes indicated also demonstrates the plasticity in orthomyxovirus genome composition --- regardless of rooting, the PB1 tree requires at least two switches in viral membrane fusion protein class to explain the current distribution of HEF-like (class I) and gp64-like (class III) proteins.
+Even within gp64-using orthomyxoviruses changes between different gp64 lineages are apparent, \textit{e.g.} H\`{u}b\v{e}i orthomyxo-like virus 2 carries gp64 related to the Asto-\={U}sinis clade yet does not belong to it in PB1 (Fig. \ref{fig:orthomyxos}B and Supp. Fig. 9).
+Almost all orthomyxoviruses use either HEF-like or gp64-like proteins, with Rainbow / Steelhead trout orthomyxoviruses (and one additional relative \citep{batts_molecular_2017}, not shown) being the only exceptions.
+Both clearly possesses an influenza A/B virus-like neuraminidase (NA) but the protein termed ``hemagglutinin'' \citep{batts_molecular_2017} does not resemble any known protein \citep{finn_hmmer_2011}.
+While \textit{Orthomyxoviridae} are a moderately-sized virus family, their members make use of a diverse and evolving set of surface proteins.
+
+
 
 
 \begin{figure*}%[tbhp]
 \centering
-\includegraphics[width=0.8\linewidth]{Fig3_contributions.png}
+\includegraphics[width=0.8\linewidth]{Fig3_contributions.pdf}
 \caption{
 \textbf{Discovery of orthomyxovirid PB1 phylogenetic diversity (PD).}
 A) Maximum likelihood (ML) tree of orthomyxovirid PB1 proteins.
-Branch color indicates earliest discovery year of the lineage. Evolutionary history in purple branches was discovered earlier than yellow branches. Viruses contributing the most PD in their year of discovery are labelled on the right, and indicated with thicker paths in the phylogeny.
+Branch color indicates earliest discovery year of the lineage.
+Evolutionary history in purple branches was discovered earlier than yellow branches.
+Viruses contributing the most PD in their year of discovery are labelled on the right, and indicated with thicker paths in the phylogeny.
 B) Inset scatter plot shows PD contributions of each virus versus its year of discovery, with black outlines indicating the maximal PD contributor each year.
 While the average PD contribution of a newly discovered orthomyxovirus is decreasing with time (Spearman's r=-0.17, one-tailed p-value: 0.027), the PD contribution of the most novel virus discovered each year has held steady (Spearman's r=0.02, one-tailed p-value: 0.950/2=0.425).
 C) Cumulative PB1 PD contribution from successive orthomyxovirid discoveries (black dots) with logarithmic least-squares fit (red line).
-Gray hatched area indicates the 95 percentile range of cumulative PD contributions under 1000 random permutations of taxa discovery order.
+Gray hatched area indicates the 95 percentile range of cumulative PD contributions under 10000 random permutations of taxa discovery order.
 }
 \label{fig:contributions}
 \end{figure*}
 
+
+
+\subsection{Rate of \textit{Orthomyxoviridae} PB1 diversity discovery remains high}
+
+We now analyze the progress made by virus discovery studies on \textit{Orthomyxoviridae} members by quantifying the evolutionary contribution (branch length in amino acid substitutions per site) contributed by each new orthomyxovirid taxon.
+There are two clear phases of discovery: before 2015, public health investigations of pathogens infecting humans and farmed animals or vectored by ticks led to the discovery of 14 viruses.
+Since 2015, when lower costs of sequencing enabled large metagenomic surveys in arthopods and vertebrates of little immediate economic value \citep{li_unprecedented_2015, shi_evolutionary_2018}, 115 additional viruses have been discovered (Supp. Fig. 10A) with current trends, when focusing on smaller clades, being consistent with arthropod discovery efforts being the most fruitful (Supp. Fig. 10B).
+
+
+To quantify how each discovery contributed to our knowledge of the family's evolutionary history, we take a phylogenetic approach, building a maximum-likelihood tree of the sole protein shared by all RNA viruses, RNA-directed RNA polymerase (RdRp) \citep{koonin_virus_2014}, encoded here in the PB1 gene \citep{kobayashi_influenza_1996} (Fig. \ref{fig:contributions}A).
+We scan through the tree based on the chronology of discovery, attributing to each taxon the sum of the lengths of the branches ancestral to that taxon but not to earlier taxa.
+This quantity is called the phylogenetic diversity (PD), a metric commonly used in ecology and macroevolution \citep{lum_tracking_2022}, and represents the amount of independent evolution \citep{felsenstein_phylogenies_1985} contributed by a sequence to a tree.
+
+
+We find that distinctive viruses, those contributing significant PD, have continued to be discovered each year (Fig. \ref{fig:contributions}B).
+For example, the W\={e}nl\v{i}ng orthomyxo-like virus 2 found in 2018 is nearly as distinctive relative to the viruses discovered before it as the Infectious salmon anemia virus found in 1984 was.
+There is no correlation between the year of discovery and the maximum PD contributed by an orthomyxovirid (Spearman r $ = 0.02$, p-value $ = 0.95$).
+In contrast, the average PD contributed per virus does decrease with time (Spearman r $ = -0.17$, one-tailed p-value $ = 0.054/2=0.027$), as shared evolutionary history is attributed to earlier discoveries.
+While the orthomyxoviruses discovered each year are, on average, less distinctive, the increased host breadth and rapid pace of current studies result in evolutionarily highly distinctive viruses.
+
+
+\subsection*{Projecting future PB1 phylogenetic diversity discovery}
+
+Fig. \ref{fig:contributions}C shows the cumulative PD of PB1 after each new orthomyxovirid discovery.
+Early orthomyxovirid discovery efforts do show some bias, finding viruses more related to one-another than by chance: until 2018, the empirical accumulation of PD (black dots) is mostly below the 95 percentile envelope of 10000 random permutations of discovery order (gray hatched area).
+We fit the empirical data with a logarithmic function ($f(x) = A \times log_{2} (1 + x/B)$, where A = 46.3 and B=62.4), indicated with a red line in Fig. \ref{fig:contributions}C).
+We can extrapolate this curve into the future, \textit{e.g.} 200th orthomyxovirid is expected to contribute $\approx$0.26 amino acid substitutions per site to PB1 PD (bringing total PD to 95.9), and the 500th $\approx$0.12 (total PD 146.8).
+Note that any remaining bias in the current viral discovery paradigm, leaving some parts of the \textit{Orthomyxoviridae} tree of life undersampled, would manifest in a future PD curve higher than the extrapolation of the one observed so far.
+There is, regardless, an eventual limit, in which the PD gain of a new discovery is less than the threshold of difference used to define a new taxon (\textit{e.g.} 0.1 aa sub/site would currently be reached around the 600th taxon).
+If current trends continue, there would remain at least hundreds of additional taxa to be discovered.
+
+
+
+
 \section{Discussion}
 
-In this work, we endeavored to show how the accumulation of metagenomic data can lead to a new stage in viral studies. We focused on the family \textit{Orthomyxoviridae}, synthesizing data across numerous studies to analyze geographic, evolutionary, and taxonomic trends.
+
+\subsection{Summary}
+
+In this work, we endeavored to show how the accumulation of metagenomic data can lead to a new stage in viral studies.
+We focused on the family \textit{Orthomyxoviridae}, synthesizing data across numerous studies to analyze geographic, evolutionary, and diversity discovery trends.
 
 
-We first focus on a single recently discovered mosquito RNA virus - W\v{u}h\`{a}n mosquito virus 6 \citep{li_unprecedented_2015} (WuMV-6) - whose frequency and fast evolution uniquely enable the tracking of mosquito populations. In our experience, metagenomically discovered RNA viruses can be rare or, when encountered often, do not always contain sufficient signal to calibrate molecular clocks \citep{webster_discovery_2015}. WuMV-6 has rapidly disseminated across vast distances, and while anthropogenic (shipping, air travel) \citep{lounibos_invasions_2002,fonseca_pathways_2006,bataille_evidence_2009} or abiotic (windborne migration) \citep{huestis_windborne_2019} mechanisms may contribute, the virus' extremely diverged and actively diversifying gp64 surface proteins suggest a potential vertebrate host. Indeed, the rapid sweep of the USA by West Nile virus was accelerated by the movement of both its mosquito vector and its diverse avian hosts \citep{di_giallonardo_fluid_2015}. While alternation between vertebrate host species could theoretically produce diversifying selection on the WuMV-6 surface protein, gp64 uses NPC1 \citep{li_baculovirus_2019}, a highly conserved metazoan protein, as its receptor. We thus believe it more likely that WuMV-6 gp64 diversity is selected for by repeat exposure to vertebrate hosts \citep{jong_antigenic_2007}, which help disperse WuMV-6 \citep{lycett_brief_2019} and reduce its effective population sizes \citep{bedford_strength_2011}. Previously, this sort of phylodynamic analysis was limited to known human and animal pathogens \citep{drummond_measurably_2003,wheeler_spatial_2010}. As metagenomic discovery efforts continue more systems like WuMV-6 will undoubtedly be found, contributing to research areas outside of virus evolution, like disease vector dispersal and shifting host distributions under climate change.
+We first focus on a single recently discovered mosquito RNA virus - W\v{u}h\`{a}n mosquito virus 6 \citep{li_unprecedented_2015} (WuMV-6) - whose frequency and fast evolution uniquely enable the tracking of mosquito populations.
+In our experience, metagenomically discovered RNA viruses can be rare or, when encountered often, do not always contain sufficient signal to calibrate molecular clocks \citep{webster_discovery_2015}.
+WuMV-6 has rapidly disseminated across vast distances, and while anthropogenic (shipping, air travel) \citep{lounibos_invasions_2002,fonseca_pathways_2006,bataille_evidence_2009} or abiotic (windborne migration) \citep{huestis_windborne_2019} mechanisms may contribute, the virus' extremely diverged and actively diversifying gp64 surface proteins suggest a potential vertebrate host.
+Indeed, the rapid sweep of the USA by West Nile virus was accelerated by the movement of both its mosquito vector and its diverse avian hosts \citep{di_giallonardo_fluid_2015}.
+While alternation between vertebrate host species could theoretically produce diversifying selection on the WuMV-6 surface protein, gp64 uses NPC1 \citep{li_baculovirus_2019}, a highly conserved metazoan protein, as its receptor.
+We thus believe it more likely that WuMV-6 gp64 diversity is selected for by repeat exposure to vertebrate hosts \citep{jong_antigenic_2007}, which help disperse WuMV-6 \citep{lycett_brief_2019} and reduce its effective population sizes \citep{bedford_strength_2011}.
+Previously, this sort of phylodynamic analysis was limited to known human and animal pathogens \citep{drummond_measurably_2003,wheeler_spatial_2010}.
+As metagenomic discovery efforts continue more systems like WuMV-6 will undoubtedly be found, contributing to research areas outside of virus evolution, like disease vector dispersal and shifting host distributions under climate change.
 
 
-Zooming out, we find a highly modular and fluid genomic organization across members of the family \textit{Orthomyxoviridae}. This presents an interesting conundrum -- how and why are novel segments acquired so readily by orthomyxovirids, given that packaging signals encompass multiple sites \citep{baker_influenza_2014} and obtaining segments via recombination is hard \citep{chare_phylogenetic_2003}? (Splitting genomes via segmentation is better documented \citep{kondo_orchid_2006,qin_tick-borne_2014} and easier to explain conceptually \citep{ke_phylodynamic_2013}.) Observed frequent switches in surface proteins may be selected for because of their importance in determining host and tissue tropism. We may also be missing additional classes of surface protein, beyond HEF-like and gp64, because of a reliance on sequence homology for protein identification. Indeed, many pooled studies produce incomplete viral genomes, with too few segments relative to their clade, so there is a possibility that significant undetected gain and loss of segments has occurred even within already-discovered viruses. To assess such evolutionary questions will require metagenomic studies to look beyond discovering conserved genes in increasing numbers of host species to completing viral genomes by sequencing individuals across geographic transects \citep{batson_single_2021}. Laboratory studies will be necessary to identify the functions of these novel segments and to confirm/determine tropism of discovered surface proteins \citep{arunkumar_functionality_2021}.
+\subsection{Molecular clock analyses applied to arthropod RNA viruses}
+
+Arthropod RNA virus population dynamics in the wild are not well understood at this time and, as such, the application of sophisticated phylogenetic analyses to these systems are only getting started.
+For example, \textit{Drosophila} research to date has uncovered the full spectrum of dynamics - a suspected sweep of a Sigma virus in British \textit{D. obscura} over roughly a decade \citep{longdon_rhabdoviruses_2011}, the P element invasion of \textit{D. melanogaster} that took place over a few decades \citep{anxolabehere_molecular_1988}, and viruses of \textit{D. melanogaster} and \textit{D. simulans} whose common ancestry is on the order of hundreds of years \citep{webster_discovery_2015}.
+Similarly, vertical transmission (described in at least one member of the eight-segmented Asto-\={U}sinis clade \citep{coatsworth_intrinsic_2022}) and diapausing could also complicate molecular clock analyses of arthropod RNA viruses by affecting viral population dynamics and/or replication rates.
+As such, the identification of more arthropod RNA virus systems that are amenable to molecular clock analyses will be hugely important in illuminating the timescales of RNA virus population turnover in arthropods, identifying departures from neutral evolution, and providing much-needed context.
 
 
-Finally, we assess the overall progress of orthomyxovirus discovery from the perspective of phylogenetic diversity (PD). We find that the many new orthomyxovirids being discovered every year are adding significant evolutionary history to their family tree. We may contrast this to the situation for birds, which have been studied and characterized for centuries and for which the discovery of new and distinctive species is now rare \citep{lum_tracking_2022}. Where the PD contribution of the most distinctive avian species discovered in each year exhibits a strong downwards trend (Fig. 4 from \cite{lum_tracking_2022}), the PD of the most distinctive orthomyxovirus discovered each year remains high (our Fig. \ref{fig:contributions}B). The aggregate trend also indicates that significant PD remains to be discovered: if logarithmic trend continues, known \textit{Orthomyxoviridae} member diversity would double on the discovery of the 531st member, before running into a taxonomic threshold at the taxon-/species-definition barrier. (While there is a risk that some metagenomic sequence represents endogenized viral genes, this is extremely rare for the RdRp gene we use to calculate PD \citep{whitfield_diversity_2017}.)
-This complements the argument made by \cite{parry_divergent_2020} for the existence of many more influenza-like viruses based on virus-host codivergence and the existence of many unsampled host species.
+\subsection{Long-term evolution of viral receptor binding and membrane fusion proteins}
+
+Zooming out, we find a highly modular and fluid genomic organization across members of the family \textit{Orthomyxoviridae}.
+This presents an interesting conundrum -- how and why are novel segments acquired so readily by orthomyxovirids, given that packaging signals encompass multiple sites \citep{baker_influenza_2014} and obtaining segments via recombination is hard \citep{chare_phylogenetic_2003}? (Splitting genomes via segmentation is better documented \citep{kondo_orchid_2006,qin_tick-borne_2014} and easier to explain conceptually \citep{ke_phylodynamic_2013}.) 
+Observed frequent switches in surface proteins may be selected for because of their importance in determining host and tissue tropism.
+We may also be missing additional classes of surface protein, beyond HEF-like and gp64, because of a reliance on sequence homology for protein identification.
+Indeed, many pooled studies produce incomplete viral genomes, with too few segments relative to their clade, so there is a possibility that significant undetected gain and loss of segments has occurred even within already-discovered viruses.
+To assess such evolutionary questions will require metagenomic studies to look beyond discovering conserved genes in increasing numbers of host species to completing viral genomes by sequencing individuals across geographic transects \citep{batson_single_2021}.
+Laboratory studies will be necessary to identify the functions of these novel segments and to confirm/determine tropism of discovered surface proteins \citep{arunkumar_functionality_2021}.
+
+
+\subsection{Predicting discovery of \textit{Orthomyxoviridae} diversity}
+
+Finally, we assess the overall progress of orthomyxovirus discovery from the perspective of phylogenetic diversity (PD).
+We find that the many new orthomyxovirids being discovered every year are adding significant evolutionary history to their family tree.
+We may contrast this to the situation for birds, which have been studied and characterized for centuries and for which the discovery of new and distinctive species is now rare \citep{lum_tracking_2022}.
+Where the PD contribution of the most distinctive avian species discovered in each year exhibits a strong downwards trend (Fig. 4 from \citep{lum_tracking_2022}), the PD of the most distinctive orthomyxovirus discovered each year remains high (our Fig. \ref{fig:contributions}B).
+The aggregate trend also indicates that significant PD remains to be discovered: if logarithmic trend continues, known \textit{Orthomyxoviridae} member diversity would double on the discovery of the 531st member.
+(While there is a risk that some metagenomic sequence represents endogenized viral genes, this is extremely rare for the RdRp gene we use to calculate PD \citep{whitfield_diversity_2017}.)
+This complements the argument made by \citep{parry_divergent_2020} for the existence of many more influenza-like viruses based on virus-host codivergence and the existence of many unsampled host species.
 We believe that phylogenetic diversity measures, already in widespread use in ecology and macroevolution, will prove useful to the metagenomic virus discovery community as it seeks to assess ongoing progress and predict future payoff.
-One roadblock to the systematic application of these methods is the lack of consensus on how to define lineages as belonging to the same or different taxa. 
+One roadblock to the systematic application of these methods is the lack of consensus on how to define lineages as belonging to the same or different taxa.
 The International Commitee for the Taxonomy of Viruses (ICTV) has created a number of higher taxonomic degrees of organization (some of which are in dispute \citep{holmes_can_2019}), while the growth of sequence databases has left many new viruses without an official taxonomic designation.
 Leadership in curating sequence databases can therefore have a disproportionately bigger impact on the direction the field of long-term virus evolution will take.
 
 
-This work was made possible by the public sharing of annotated genomes, raw sequencing data, and sampling metadata from groups across the world. As metagenomic surveys expand across diverse hosts and geographies, the accumulation of sequence data allows a depth of analysis that moves beyond virus discovery and into ecological and evolutionary dynamics; encountering new samples of previously seen viruses, instead of being seen as a disappointment, can be viewed as opportunity for more granular phylodynamic analysis. The evolutionary interdependence of sequence within and between organisms generates increasing returns on additional surveys. With appropriate study designs, good data organization, and public sharing strategies, the community's search into the shape of the ``virosphere'' will offer large dividends for many fields of research.
+\subsection{Keep going}
+
+This work was made possible by the public sharing of annotated genomes, raw sequencing data, and sampling metadata from groups across the world.
+As metagenomic surveys expand across diverse hosts and geographies, the accumulation of sequence data allows a depth of analysis that moves beyond virus discovery and into ecological and evolutionary dynamics; encountering new samples of previously seen viruses, instead of being seen as a disappointment, can be viewed as opportunity for more granular phylodynamic analysis.
+The evolutionary interdependence of sequence within and between organisms generates increasing returns on additional surveys.
+With appropriate study designs, good data organization, and public sharing strategies, the community's search into the shape of the ``virosphere'' will offer large dividends for many fields of research.
 
 
 \section{Methods}
@@ -234,6 +326,14 @@ All successfully assembled segments (from China, Australia, Cambodia, California
 PhyML v.3.3.2 was used to generate maximum likelihood phylogenies of each segment under an HKY+$\Gamma_{4}$ \citep{hasegawa_dating_1985,yang_maximum_1994} model.
 Each tree was rooted via least squares regression of tip dates against divergence from root in TreeTime \citep{sagulenko_treetime_2018}.
 
+To confirm sufficient molecular clock signal in WuMV-6, maximum likelihood phylogenies \citep{stamatakis_raxml_2014} were inferred from all available aligned segments under a GTR+$\Gamma$ model and rooted via least-squares regression using TreeTime \citep{sagulenko_treetime_2018} and visualized using root-to-tip plots for each segment.
+The genome-wide root-to-tip plot was made by only focusing on strains for which we had complete genomes and summing the divergence of each sequence from the root of their segment tree for any given strain.
+
+We also ran molecular clock analyses on all available segment sequences individually using BEAST v.1.10.4 \citep{suchard_bayesian_2018} with tip date calibration, GTR+$\Gamma_{4}$ nucleotide substitution model, strict molecular clock, and a constant population size tree prior.
+The date of collection for strain QN-3 (the first WuMV-6 strain to be discovered) was sampled uniformly from the interval between years 2013 and 2014.
+Analyses were run for 50 million states, sampling every 5 000 states.
+With convergence confirmed visually in Tracer v.1.7.1 \citep{rambaut_posterior_2018} and 10\% of the states discarded as burn-in before summarizing the posterior distribution of trees using TreeAnnotator with the common ancestors option \citep{heled_looking_2013}.
+To confirm the diverged WuMV-6 sequences from Sweden were not influencing the molecular clock rate we repeated the entire analysis but excluded the samples from Sweden.
 
 27 complete WuMV-6 genomes (13 from California, 7 from Australia, 3 from Cambodia, 3 from Sweden, and 1 from China) were analyzed using the reassortment network method \citep{muller_bayesian_2020} implemented in BEAST v2.6 \citep{bouckaert_beast_2019}.
 For the smallest segment coding for the hypothetical 3 protein, two Ns were inserted after the 349th nucleotide from the initiation codon ATG to account for the presence of a suspected splicing site \citep{batson_single_2021} that brings a substantial portion of this segment back to being coding.
@@ -245,7 +345,8 @@ The reassortment network was summarized using the native BEAST v2.6 tool (Reasso
 Posterior embeddings of each segment within the network (in the form of clonal phylogenetic trees) were summarized using TreeAnnotator v.1.10.4 after combining independent runs after discarding 10\% of the states as burn-in.
 
 In our personal experience ReassortmentNetworkSummarizer is overly conservative when summarizing reassortment networks due to reassortant edges requiring conditioning on both the origin and destination clades.
-As such we removed reassortant edges with $\leq$0.1 posterior support and summarized posterior supports by first extracting the embedding of each segment from the summarized network by carrying out the subtree prune-and-regraft procedures implied by reassortant edges and then finding how many of the same clades are found in posterior summaries of segment embeddings and how many of those are supported with posterior probability $\geq$0.95.
+As such we removed reassortant edges with $\leq$0.1 posterior support and summarized posterior supports by first extracting the embedding of each segment from the summarized network by carrying out the subtree prune-and-regraft procedures implied by reassortant edges and then finding how many of the same clades are found in posterior summaries of segment embeddings and how many of those are supported with posterior probability $\geq$0.95 to produce Figure 1.
+Similarly, the 95\% highest posterior density interval for most recent common ancestor of the ``Pacific rim'' clade (\textit{i.e.} genomes collected outside of Sweden) produced by ReassortmentNetworkSummarizer in Figure 1 do not overlap perfectly with estimates we extracted from the posterior distribution of reassortment networks though.
 
 All trees were visualized using baltic (https://github.com/evogytis/baltic) and matplotlib \citep{hunter_matplotlib_2007}.
 
@@ -254,7 +355,6 @@ All trees were visualized using baltic (https://github.com/evogytis/baltic) and 
 
 For each clonal WuMV-6 segment embedding within the reassortment network 1 000 trees from the posterior distribution were extracted after removing 10\% burnin and combining all three independent runs.
 These trees were then used as empirical trees to be sampled from in a BEAST v.1.10.4 \citep{suchard_bayesian_2018} renaissance counting analysis \citep{lemey_counting_2012} run for 10 million states, sampling every 1 000 states.
-As a comparison estimates of non-synonymous evolution were computed from previously published data of seasonal human coronaviruses OC43 and 229E \citep{kistler_evidence_2021}, and Ebola virus \citep{park_ebola_2015}.
 
 Orthomyxovirid PB1 protein sequences from each genus - isa-, influenza, thogoto-, and quaranjaviruses were used as queries in a protein BLAST \citep{altschul_basic_1990} search with influenza A, B, C, and D viruses excluded from the search.
 Having identified the breadth of PB1 protein diversity and having downloaded representative PB1 proteins of influenza A, B, C, and D viruses we aligned all sequences using MAFFT \citep{katoh_mafft_2005} (E-INS-i mode) and removed sequences that were identical or nearly identical, as well as short or poorly aligning sequences.
@@ -288,107 +388,31 @@ As well as the relationship between year of discovery and maximum PD contributed
 Data and scripts to replicate analyses are publicly available at \url{https://github.com/evogytis/orthomyxo-metagenomics}.
 
 \section{Acknowledgements}
+GD acknowledges the support of European Molecular Biology Organization (EMBO) installation grant IG-5305-2023.
 We would like to acknowledge the contributions of Amy Kistler, Maira Phelps, Cristina Tato, and Fabiano Oliveira in setting up sample logistics, experimental design, and data analysis for the Californian mosquito virome study.
 We would like to thank Darren Obbard for numerous and fruitful discussions.
 We are grateful to Jessica Manning, Dara Kong, Sreyngim Lay, Alex Greninger, Mang Shi, Eddie C Holmes, Dana Price, and John Pettersson for sharing assembled sequence data.
 
+
+\clearpage
+
 % Bibliography
-\bibliographystyle{mbe.bst}
-\bibliography{orthomyxo-metagenomics.bib}
+\bibliographystyle{mbe}
+\bibliography{orthomyxo-metagenomics}
 
-\onecolumn
-
-\setcounter{figure}{0}
-\setcounter{table}{0}
-\renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\thetable}{S\arabic{table}}
+% \clearpage
 
 
-\newpage
 
-\section{Supplementary material}
-
-\pagebreak
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{SuppFig1_clonal.png}
-\caption{
-\textbf{Segment paths through the reassortment network}.
-Each panel shows the embedding of every segment in the reassortment network of W\v{u}h\`{a}n mosquito virus 6 genomes.
-Tips are colored by location, as in Figure 1A in the main text.
-The first colored box to the right of the tree indicates how many successive reassortments the entire genome a tip belongs to has experienced reassortment - cycling between grey, blue, and brown colors for each successive event.
-The second colored box indicates whether the segment in question has undergone a reassortment event.
-}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{SuppFig2_BayesTangle.png}
-\caption{
-\textbf{Tangled chain of maximum clade credibility trees of individual segment embeddings}.
-Each tree corresponds to a segment of W\v{u}h\`{a}n mosquito virus 6, with tips colored the same as Fig. 1 in the main text.
-The same tips are connected with colored lines between successive trees to indicate changes in their phylogenetic position, their names are given at the base of each tree.
-Numbers at each internal branch longer than 1.0 year correspond to the node's posterior probability.
-}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{SuppFig3_MLtangle.png}
-\caption{
-\textbf{Tangled chain of maximum likelihood trees of individual segments}.
-Each tree corresponds to all available segments of W\v{u}h\`{a}n mosquito virus 6, with tips colored the same as Figure 1A in the main text.
-The same tips are connected with colored lines between successive trees (if the corresponding segment was identified for that genome) to indicate changes in their phylogenetic position, their names are given at the base of each tree.
-Unlike Supp. Fig. 2, samples from Puerto Rico, Greece, Cambodia, and additional Chinese sequences are included here.
-}
-\end{figure}
+% \newpage
 
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{SuppFig4_synDNDS.png}
-\caption{
-\textbf{Estimates of synonymous rate of evolution and dN/dS for W\v{u}h\`{a}n mosquito virus 6 genes}.
-The top panel shows 95\% highest posterior densities of the synonymous rate of evolution for each WuMV-6 gene (distinguished by color).
-Colored rectangles in the top left show the relative lengths of each gene with white lines indicating 100 amino acid increments.
-The bottom panel shows 95\% highest posterior densities of dN/dS for each WuMV-6 gene.
-}
-\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{SuppFig5_sitewiseDNDS.png}
-\caption{
-\textbf{Estimates of dN/dS in gp64 per codon}.
-Grey vertical lines indicate the 95\% highest posterior density interval for dN/dS per codon in gp64 of W\v{u}h\`{a}n mosquito virus 6.
-The red line tracks mean estimated dN/dS in a sliding window of 15 amino acids.
-Regions of the protein are colored and labelled according to nomenclature proposed by \cite{garry_proteomics_2008}.
-Dashed lines at the bottom depict putative disulfide bonds between cysteins in gp64, based on \cite{garry_proteomics_2008}.
-The two peaks in average dN/dS in domain II occupy predicted regions of thogotovirus gp64 fusion loops which are inserted into the target membrane.
-A notable region of elevated dN/dS is seen in domain III but is difficult to explain since the region is expected to be proximal to the viral, and not the host, membrane.
-}
-\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{SuppFig6_idMatrix.png}
-\caption{
-\textbf{Pairwise distance matrix between PB1 (lower triangle) and gp64 (upper triangle) proteins}.
-Dashed horizontal line marks the difference in PB1 between thogoto-like (above) and quaranja-like (below) viruses.
-Dashed vertical line marks the difference between stereotypically \textit{Quaranjavirus} (to the left) and the markedly diverged quaranja-like gp64 proteins used by the eight-segmented Asto-\={U}sinis clade (to the right).
-}
-\end{figure}
+% \newpage
 
-\begin{figure}
-\centering
-\includegraphics[width=\textwidth]{SuppFig7_PD.png}
-\caption{
-\textbf{Orthomyxovirus (red) and PB1 phylogenetic diversity (blue) discovery curves}.
-Regardless of whether discovery efforts are quantified in terms of distinct virus numbers or phylogenetic diversity, 2015 has marked a major turning point for discovery of orthomyxo- and other RNA viruses.
-}
-\end{figure}
 
-% \bibliography{orthomyxo-metagenomics.bib}
+
+
 
 \end{document}
